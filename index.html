@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIT</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>GIT</h1>
+    <hr>
+    <ul>
+        <li><b>1. git init</b> : khởi tạo 1 kho chứa git mới ở local (Phải chạy trong thư mục dự án)</li>
+        <p>Tạo file README.MD : file mô tả cho mọi người biết file này có tác dụng là gì ? (nên có)</p>
+        <li><b>2. git status</b> : Theo dõi project nếu có file mới, hoặc khi thay đổi nội dung thì nó sẽ báo</li>
+        <li><b>3. git add</b> : lưu thông tin để chuẩn bị commit</li>
+        <li><b>4. git commit</b> : đóng gói (hiểu đơn giản đóng gói thành 1 cái hộp và dán thành 1 cái tem, đánh dấu lại)</li>
+        <li><b>5. git log</b> : Xem lịch sử commit đã được tạo</li>
+        <li><b>6. git show id_commit</b> : Xem nội dung thay đổi của 1 commit</li>
+        <li><b>7. git diff</b> : Kiểm tra sự thay đổi</li>
+        <li><b>8. git checkout</b> : Quay lại nội dung lúc chưa có thay đổi (chưa dùng git add)</li>
+        <li><b>9. git reset HEAD ten_file</b>:  Khi dùng git add rồi mà muốn quay lại thì dùng git reset</li>
+        <li>Những thuật ngữ hay nói đến: Working directory, Staging area, Git Repository</li>
+        <ul>
+            <li>Working directory: những thư mục mà đang quản lý, khi thay đổi file thì những file đó sẽ được nằm trong working directory</li>
+            <li>Staging area: Sau khi sử dụng lệnh "git add" thì những file đó sẽ được nằm trong Staging area</li>
+            <li>Git Repository: Sau khi commit những file thay đổi ở Staging area sẽ được đưa vào Git Repository</li>
+        </ul>
+        <li><b>10. git branch</b>: Hiện tại đang có bao nhiêu nhánh, và đang ở nhánh nào</li>
+        <li><b>11. git checkout -b ten_nhanh</b> Tạo 1 nhánh mới và chuyển sang nhánh đó để làm việc</li>
+        <li><b>12. git checkout ten_nhanh</b>: chuyển sang nhánh khác để làm việc</li>
+        <li><b>13. git merge</b>: kéo những thay đổi ở 1 nhánh khác về 1 nhánh nào đó</li>
+        <ul>
+            <li>Kéo từ branch B vào branch A : A <---- B</li>
+            <li>Kéo từ feature vào master : master <------ feature</li>
+            <ul>
+                <li>Các bước lưu ý khi merge</li>
+                <ol>
+                    <li>git checkout master</li>
+                    <li>git merge feature</li>
+                </ol>
+            </ul>
+        </ul>
+        <li><b>14. git branch -D ten_nhanh</b>: xóa 1 branch</li>
+        <li><b>15. git reset --soft id_commit</b>: Quay lại commit mà bạn muốn chỉ định</li>
+        <li><b>16. git reset --hard id_commit</b>: Quay lại commit mà bạn muốn chỉ định nhưng khác là sẽ mất hoàn toàn code khi bị thay đổi (it dung)</li>
+        <li><b>17. .gitignore</b>: nghĩa là từ chối 1 cái gì đó : Bỏ qua 1 số file mà bạn muốn ko commit</li>
+    </ul>
+    <hr>
+    <h1>GITHUB</h1>
+    <ul>
+        <li><a href="https://www.google.com.vn/search?q=git+repo&sxsrf=AOaemvIttVwDkbkCalM7xxxBkKiXXwPixA:1636098692084&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiHku_K3oD0AhWWfn0KHUyOB5cQ_AUoAXoECAEQAw&biw=1694&bih=863&dpr=1.1#imgrc=SU9gCZba9wtJlM">Link</a></li>
+        <li>Giúp lưu trữ lịch sử chung, tất cả commit</li>
+        <li>Cách đưa project lên remote repository để có thể làm việc chung với người khác</li>
+        <li><b>18. git remote add origin name_repository</b>: thêm một kho lưu trữ từ xa</li>
+
+        <li><b>19. git clone</b>: để sao chep, copy một Git Repo (kho chứa dự án Git) về máy local</li>
+        <li><b>20. git pull</b> : để tải dữ liệu từ một Remote repository và cập nhật Local repository</li>
+    </ul>
+    <hr>
+    <h1>CÁC BƯỚC LÀM KHI ĐƯỢC GIAO 1 TASK ???</h1>
+    <ol>
+        <li>Pull Request : đưa những file source code lên 1 host chung, mọi người có quyền truy cập sẽ truy cập vào và cùng review</li>
+        <li>Git checkout -b ten_nhanh</li>
+        <li>Git push origin ten_nhanh</li>
+        <li>Tạo pull request</li>
+        <li>Review code</li>
+        <li>ok => merge master</li>
+    </ol>
+    <hr>
+    <h1>NHỮNG BƯỚC CẦN LÀM ĐỂ FIX CONFLICT</h1>
+    <p>CONFLICT : Xung đột giữa các commit</p>
+    <ul>
+        <li>Khi nào 1 conflict xảy ra: </li>
+        <ul>
+            <li>2 người cùng sửa 1 file và 1 dòng nào đấy : thay đổi trên cùng số dòng</li>
+            <li>A xóa file X, B lại ko xóa mà muốn sửa nội dung</li>
+        </ul>
+        <li>Cách giải quyết: </li>
+        <ul>
+            <li>Đang ở branch bị conflict</li>
+            <li>Sau đó checkout sang branch main -> rồi pull về để cập nhật code mới nhất</li>
+            <li>Tiếp theo lại checkout sang branch conflict</li>
+            <li>Dùng git merge để merge code vào branch : git merge main</li>
+            <li>Fix conflic: sẽ lấy code ở đoạn nào (demo)</li>
+            <li>Cuối cùng là đẩy code lên như bình thường : git add -> git commit -> git push lên branch bị conflic</li>
+        </ul>
+    </ul>
+</body>
+</html>
